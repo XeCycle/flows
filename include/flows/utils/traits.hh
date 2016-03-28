@@ -40,6 +40,17 @@ using cforward_t = typename std::conditional<
   From&&, To&&
 >::type;
 
+// add const to lref
+template <class T>
+struct add_const_to_lref {
+  using type = T;
+};
+
+template <class T>
+struct add_const_to_lref<T&> {
+  using type = const T&;
+};
+
 // unbound flows require member template bound_flow
 namespace traits_impl {
 

@@ -6,4 +6,5 @@ function(flows_deftest name)
   add_dependencies(check ${name})
 endfunction(flows_deftest)
 
+add_subdirectory(utils)
 add_subdirectory(flow)
