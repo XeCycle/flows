@@ -51,6 +51,10 @@ struct add_const_to_lref<T&> {
   using type = const T&;
 };
 
+// read-only converting forward
+template <class From, class To>
+using rcforward_t = typename add_const_to_lref<cforward_t<From, To> >::type;
+
 // unbound flows require member template bound_flow
 namespace traits_impl {
 
