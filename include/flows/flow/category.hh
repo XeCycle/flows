@@ -28,7 +28,7 @@ struct identity_flow_t {
   require_convertible_to<_In, In>
   push(_In&& x, DS& ds) const
   {
-    ds.push((cforward_t<_In, In>)x);
+    ds.push((rcforward_t<_In, In>)x);
   }
 
 };
@@ -59,7 +59,7 @@ struct flow_compose2_t {
   push(In&& x, DS& ds)
   {
     contramap_sink_proxy_t<F, typename std::decay<DS>::type> proxy(f, ds);
-    g.push((cforward_t<In, input_type>)x, proxy);
+    g.push((rcforward_t<In, input_type>)x, proxy);
   }
 
 };

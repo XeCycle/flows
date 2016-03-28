@@ -31,7 +31,7 @@ struct tee_flow_t {
   {
     if (s.accepting())
       s.push(x);
-    ds.push((cforward_t<_In, In>)x);
+    ds.push((rcforward_t<_In, In>)x);
   }
 
 };

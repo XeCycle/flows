@@ -36,7 +36,7 @@ public:
   require_convertible_to<_In, In>
   push(_In&& x)
   {
-    *it = (cforward_t<_In, In>)x, ++it;
+    *it = (rcforward_t<_In, In>)x, ++it;
   }
 
 };

@@ -50,7 +50,7 @@ private:
     require_convertible_to<_In, input_type>
     push(_In&& x) const
     {
-      ds->push(std::make_pair((cforward_t<_In, input_type>)x, *psecond));
+      ds->push(std::make_pair((rcforward_t<_In, input_type>)x, *psecond));
     }
 
   };
@@ -73,7 +73,7 @@ public:
       DS,
       typename std::remove_pointer<decltype(std::addressof(std::get<1>(x)))>::type>
       proxy { std::addressof(std::get<1>(x)), std::addressof(ds) };
-    f.push(std::get<0>((cforward_t<_In, In>)x), proxy);
+    f.push(std::get<0>((rcforward_t<_In, In>)x), proxy);
   }
 
 };
@@ -199,7 +199,7 @@ private:
     require_convertible_to<_In, input_type>
     push(_In&& x) const
     {
-      ds->push(std::make_pair(*pfirst, (cforward_t<_In, input_type>)x));
+      ds->push(std::make_pair(*pfirst, (rcforward_t<_In, input_type>)x));
     }
 
   };
@@ -222,7 +222,7 @@ public:
       DS,
       typename std::remove_pointer<decltype(std::addressof(std::get<0>(x)))>::type>
       proxy { std::addressof(std::get<0>(x)), std::addressof(ds) };
-    f.push(std::get<1>((cforward_t<_In, In>)x), proxy);
+    f.push(std::get<1>((rcforward_t<_In, In>)x), proxy);
   }
 
 };

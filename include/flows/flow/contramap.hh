@@ -29,7 +29,7 @@ struct contramap_sink_t {
   require_convertible_to<In, input_type>
   push(In&& x)
   {
-    f.push((cforward_t<In, input_type>)x, s);
+    f.push((rcforward_t<In, input_type>)x, s);
   }
 
 };
@@ -63,7 +63,7 @@ public:
   require_convertible_to<In, input_type>
   push(In&& x)
   {
-    pf->push((cforward_t<In, input_type>)x, *ps);
+    pf->push((rcforward_t<In, input_type>)x, *ps);
   }
 
 };

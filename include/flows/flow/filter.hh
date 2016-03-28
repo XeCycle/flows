@@ -28,7 +28,7 @@ struct filter_flow_t {
   push(_In&& x, DS& ds)
   {
     if (p(x))
-      ds.push((cforward_t<_In, In>)x);
+      ds.push((rcforward_t<_In, In>)x);
   }
 
 };

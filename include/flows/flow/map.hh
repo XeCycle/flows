@@ -26,7 +26,7 @@ struct map_flow_t {
   require_convertible_to<_In, In>
   push(_In&& x, DS& ds)
   {
-    ds.push(f((cforward_t<_In, In>)x));
+    ds.push(f((rcforward_t<_In, In>)x));
   }
 
 };

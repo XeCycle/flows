@@ -54,7 +54,7 @@ private:
     require_convertible_to<__In, _In>
     push(__In&& x)
     {
-      ps->push((cforward_t<__In, _In>)x);
+      ps->push((rcforward_t<__In, _In>)x);
       *pflag = true;
     }
 
@@ -72,7 +72,7 @@ public:
     if (l_has_output)
       return;
     if (r.accepting(ds))
-      r.push((cforward_t<__In, _In>)x, ds);
+      r.push((rcforward_t<__In, _In>)x, ds);
   }
 
 };
